@@ -16,7 +16,7 @@ title: TCP的连接建立与关闭
 4. client收到SYN+ACK, 发送ACK, 状态SYN_SENT -> ESTABLISHED
 5. server收到ACK, 状态SYN_RCVD -> ESTABLISHED
 
-    > 3次握手分别对应 2->3 3->4 4->5
+`3次握手分别对应 2->3 3->4 4->5`
 
 ##### TCP关闭连接(4次握手) #####
 1. client主动关闭, 发送FIN, 状态ESTABLISHED -> FIN_WAIT_1
@@ -27,6 +27,6 @@ title: TCP的连接建立与关闭
 6. server收到ACK, 状态LAST_ACK -> CLOSED
 7. client等待2MSL超时, 状态TIME_WAIT -> CLOSED
 
-    > 4次握手分别对应 1->2 2->3 4->5 5->6
-    >
-    > MSL Maximum Segment Lifetime
+`4次握手分别对应 1->2 2->3 4->5 5->6`
+
+`MSL Maximum Segment Lifetime`
