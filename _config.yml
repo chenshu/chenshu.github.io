@@ -1,7 +1,2 @@
 markdown: rdiscount
 pygments: true
-tags:
-  template: _layouts/archive
-
-categories:
-  template: _layouts/archive
