@@ -1,12 +1,12 @@
 ---
 layout: post
 title: TCP的连接建立与关闭
+category: network
+tags: [network, tcp/ip, protocol]
 ---
 
 {{ page.title }}
 =========
-
-@[tcp|connection|state]
 
 ### TCP正常连接建立与关闭 ###
 ##### TCP建立连接(3次握手) ####
