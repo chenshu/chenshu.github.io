@@ -5,11 +5,7 @@ category: network
 tags: [network, tcp/ip, protocols, attack]
 ---
 
-  
-
 # {{ page.title }} #
-
-  
 
 ## SYN Flood ##
 
@@ -19,12 +15,10 @@ client伪造ip发送SYN给server来建立TCP连接，server的状态变为SYN_RC
 
 解决方法:
 
-* 适当的调整半连接队列的长度`net.ipv4.tcp_max_syn_backlog`，启用syn cookie后，这个值将被忽略
-* 适当的调整SYN+ACK的重试次数`net.ipv4.tcp_synack_retries`
-* 启用连接重置`tcp_abort_on_overflow`，确认是因为攻击而无法建立连接时启用
-* 启用syn cookie`net.ipv4.tcp_syncookies`，违反TCP协议，不推荐使用
-
-  
+> * 适当的调整半连接队列的长度`net.ipv4.tcp_max_syn_backlog`，启用syn cookie后，这个值将被忽略
+> * 适当的调整SYN+ACK的重试次数`net.ipv4.tcp_synack_retries`
+> * 启用连接重置`tcp_abort_on_overflow`，确认是因为攻击而无法建立连接时启用
+> * 启用syn cookie`net.ipv4.tcp_syncookies`，违反TCP协议，不推荐使用
 
 ## Attacks based on TCP persist timezr ##
 
@@ -45,17 +39,11 @@ TCP必须能够处理调整窗口大小的ACK丢失的情况。ACK的传输并�
 
 解决方法:
 
-* 适当的窗口探测的重试次数`net.ipv4.tcp_retries2`
-
-  
+> * 适当的窗口探测的重试次数`net.ipv4.tcp_retries2`
 
 ## HTTP Slow Header ##
 
-  
-
 ## HTTP Slow Post ##
-
-  
 
 ## 参考 ##
 
