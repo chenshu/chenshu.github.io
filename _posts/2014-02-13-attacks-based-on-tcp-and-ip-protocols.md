@@ -5,11 +5,10 @@ category: network
 tags: [network, tcp/ip, protocols, attack]
 ---
 
-{{ page.title }}
-=========
+h1. {{ page.title }}
+===
 
-
-SYN Flood
+h2. SYN Flood
 ---
 
 client伪造ip发送SYN给server来建立TCP连接，server的状态变为SYN_RCVD并把响应SYN+ACK给client。由于client的ip根本不存在，server会不断超时重试。内核维护了一个这种没有收到client的ACK确认的连接队列，称为半连接队列。当半连接队列满了以后，内核会忽略其他建立连接的请求。
@@ -23,8 +22,7 @@ client伪造ip发送SYN给server来建立TCP连接，server的状态变为SYN_RC
 * 启用连接重置`tcp_abort_on_overflow`，确认是因为攻击而无法建立连接时启用
 * 启用syn cookie`net.ipv4.tcp_syncookies`，违反TCP协议，不推荐使用
 
-
-Attacks based on TCP persist timezr
+h2. Attacks based on TCP persist timezr
 ---
 
 TCP通过让接收方指明希望从发送方接收到的数据字节数(即窗口大小)来进行流量控制。如果窗口大小为0时，将有效地阻止发送方传送数据，直到窗口变为非0为止。
@@ -46,16 +44,13 @@ TCP必须能够处理调整窗口大小的ACK丢失的情况。ACK的传输并�
 
 * 适当的窗口探测的重试次数`net.ipv4.tcp_retries2`
 
-
-HTTP Slow Header
+h2. HTTP Slow Header
 ---
 
-
-HTTP Slow Post
+h2. HTTP Slow Post
 ---
 
-
-参考
+h2. 参考
 ---
 
 1. TCP/IP 详解 卷1: 协议
