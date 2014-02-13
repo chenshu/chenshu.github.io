@@ -8,6 +8,7 @@ tags: [network, tcp/ip, protocols, attack]
 {{ page.title }}
 =========
 
+
 SYN Flood
 ---
 
@@ -16,6 +17,7 @@ client伪造ip发送SYN给server来建立TCP连接，server的状态变为SYN_RC
 攻击者可以通过伪造ip发起大量的TCP连接，直到被攻击者的TCP连接资源全部耗尽。
 
 解决方法:
+
 * 适当的调整半连接队列的长度`net.ipv4.tcp_max_syn_backlog`，启用syn cookie后，这个值将被忽略
 * 适当的调整SYN+ACK的重试次数`net.ipv4.tcp_synack_retries`
 * 启用连接重置`tcp_abort_on_overflow`，确认是因为攻击而无法建立连接时启用
@@ -29,6 +31,7 @@ TCP通过让接收方指明希望从发送方接收到的数据字节数(即窗�
 TCP必须能够处理调整窗口大小的ACK丢失的情况。ACK的传输并不可靠，也就是说，TCP不对ACK报文进行确认，TCP只确认那些包含有数据的ACK报文段。
 
 如果一个ACK丢失了，则双方就有可能因为等待对方而使连接终止：
+
 * 接收方等待接收数据(因为它已经向发送方发送了一个非0的窗口调整ACK)
 * 发送方在等待允许它继续发送数据的窗口更新
 
@@ -39,6 +42,7 @@ TCP必须能够处理调整窗口大小的ACK丢失的情况。ACK的传输并�
 攻击者完成3次握手后，向被攻击者发送一个数据请求，当被攻击者进行响应时，攻击者再向被攻击者发送一个窗口大小调整为0的ACK，这样被攻击者只能等待窗口大小调整的ACK，并且不断的发送窗口探测，直到被攻击者的TCP连接资源全部耗尽。
 
 解决方法:
+
 * 适当的窗口探测的重试次数`net.ipv4.tcp_retries2`
 
 HTTP Slow Header
@@ -48,7 +52,9 @@ HTTP Slow Post
 ---
 
 参考
-0. TCP/IP 详解 卷1: 协议
-1. [CUDev](http://blog.chinaunix.net/uid/20357359.html "CUDev")
-2. [飘零的代码 piao2010 ’s blog](http://www.piao2010.com/ "飘零的代码 piao2010 ’s blog")
-3. [火丁笔记](http://huoding.com/ "火丁笔记")
+---
+
+1. TCP/IP 详解 卷1: 协议
+2. [CUDev](http://blog.chinaunix.net/uid/20357359.html "CUDev")
+3. [飘零的代码 piao2010 ’s blog](http://www.piao2010.com/ "飘零的代码 piao2010 ’s blog")
+4. [火丁笔记](http://huoding.com/ "火丁笔记")
