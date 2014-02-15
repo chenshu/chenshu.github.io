@@ -29,3 +29,10 @@ tags: [network, tcp/ip, protocol]
 
 > * 4次握手分别对应 1->2 2->3 4->5 5->6
 > * MSL Maximum Segment Lifetime
+
+
+### 同时打开 ###
+
+### 同时关闭 ###
+
+### 半关闭 ###

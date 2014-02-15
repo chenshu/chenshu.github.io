@@ -41,9 +41,17 @@ TCP必须能够处理调整窗口大小的ACK丢失的情况。ACK的传输并�
 
 > * 适当的窗口探测的重试次数`net.ipv4.tcp_retries2`
 
-## HTTP Slow Header ##
+## 关于半连接队列 ##
 
-## HTTP Slow Post ##
+半连接队列是server发送SYN+ACK，状态变为SYN_RCVD(linux下是RECV)的TCP连接的队列。
+
+linux内核版本小于2.6.20，半连接队列的大小由`net.ipv4.tcp_max_syn_backlog`决定，内核版本大于2.6.20，半连接队列的大小是`net.ipv4.tcp_max_syn_backlog`和`net.core.somaxconn`以及listen函数的backlog参数，三个值中的最小值(但是不能小于8)加1，向上最接近的2的幂。
+
+## 关于全连接队列 ##
+
+全连接队列是完成3次握手以后，等待accept的TCP连接的队列。
+
+全连接队列的大小由`net.core.somaxconn`以及listen函数的backlog参数的最小值决定。
 
 ## 参考 ##
 
